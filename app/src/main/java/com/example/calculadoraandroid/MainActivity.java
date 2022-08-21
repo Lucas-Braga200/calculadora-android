@@ -7,11 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.calculadoraandroid.utils.ExpressionCalculator;
+
 public class MainActivity extends AppCompatActivity {
     String operation = "";
     Number result = null;
     TextView textViewOperation;
     TextView textViewResult;
+    ExpressionCalculator calculator;
 
     public void onClickNumberButtons(View view) {
         try {
@@ -42,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
             if ("division".equals(operation)) {
                 addValueToOperation("/");
             }
+            if ("result".equals(operation)) {
+                calculateExpression();
+            }
         } catch (Exception e) {
             System.out.println("=================================");
             System.out.println("Error");
@@ -62,12 +68,34 @@ public class MainActivity extends AppCompatActivity {
         operation = "";
         textViewOperation.setText(operation);
     }
-
+    public void setOperationValue(Number value) {
+        if (value == null) {
+            operation = "";
+            textViewOperation.setText("");
+        } else {
+            operation = value.toString();
+            textViewOperation.setText(value.toString());
+        }
+    }
     public void setResultValue(Number value) {
         if (value == null) {
             textViewResult.setText("");
         } else {
             textViewResult.setText(value.toString());
+        }
+    }
+    public void calculateExpression() {
+        try {
+            calculator = new ExpressionCalculator(operation);
+            calculator.getValuesFromExpression();
+            Float result = calculator.calculate();
+            setResultValue(result);
+            setOperationValue(result);
+        } catch (Exception e) {
+            System.out.println("=================================");
+            System.out.println("Error");
+            System.out.println("=================================");
+            System.out.println(e);
         }
     }
 
