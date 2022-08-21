@@ -18,7 +18,6 @@
         android:gravity="bottom|right"
         android:letterSpacing="0.1"
         android:padding="10dp"
-        android:text="TextView"
         android:textColor="@color/purple_200"
         android:textSize="34sp"
         android:textStyle="normal"
@@ -37,11 +36,9 @@
         android:background="@color/slate_800"
         android:fontFamily="sans-serif-medium"
         android:gravity="bottom|right"
-        android:letterSpacing="0.1"
         android:padding="10dp"
-        android:text="TextView"
         android:textColor="#E2E8F0"
-        android:textSize="48sp"
+        android:textSize="34sp"
         android:textStyle="normal"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,6 +60,8 @@
         android:text="7"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
+        android:onClick="onClickNumberButtons"
+        android:tag="7"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/operation_text" />
@@ -82,6 +81,8 @@
         android:text="8"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
+        android:onClick="onClickNumberButtons"
+        android:tag="8"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toEndOf="@+id/button_seven"
         app:layout_constraintTop_toBottomOf="@+id/operation_text" />
@@ -101,6 +102,8 @@
         android:text="9"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
+        android:onClick="onClickNumberButtons"
+        android:tag="9"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toEndOf="@+id/button_eight"
         app:layout_constraintTop_toBottomOf="@+id/operation_text" />
@@ -120,6 +123,8 @@
         android:text="C"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
+        android:onClick="onClickOperationButtons"
+        android:tag="clear"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toEndOf="@+id/button_nine"
         app:layout_constraintTop_toBottomOf="@+id/operation_text" />
@@ -140,6 +145,8 @@
         android:text="4"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
+        android:onClick="onClickNumberButtons"
+        android:tag="4"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_seven" />
@@ -159,6 +166,8 @@
         android:text="5"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
+        android:onClick="onClickNumberButtons"
+        android:tag="5"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toEndOf="@+id/button_four"
         app:layout_constraintTop_toBottomOf="@+id/button_eight" />
@@ -178,6 +187,8 @@
         android:text="6"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
+        android:onClick="onClickNumberButtons"
+        android:tag="6"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toEndOf="@+id/button_five"
         app:layout_constraintTop_toBottomOf="@+id/button_nine" />
@@ -197,6 +208,8 @@
         android:text="/"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
+        android:onClick="onClickOperationButtons"
+        android:tag="division"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toEndOf="@+id/button_six"
         app:layout_constraintTop_toBottomOf="@+id/button_clear" />
@@ -216,6 +229,8 @@
         android:text="1"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
+        android:onClick="onClickNumberButtons"
+        android:tag="1"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_four" />
@@ -235,6 +250,8 @@
         android:text="2"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
+        android:onClick="onClickNumberButtons"
+        android:tag="2"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toEndOf="@+id/button_one"
         app:layout_constraintTop_toBottomOf="@+id/button_five" />
@@ -254,6 +271,8 @@
         android:text="3"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
+        android:onClick="onClickNumberButtons"
+        android:tag="3"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toEndOf="@+id/button_two"
         app:layout_constraintTop_toBottomOf="@+id/button_six" />
@@ -273,6 +292,8 @@
         android:text="-"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
+        android:onClick="onClickOperationButtons"
+        android:tag="subtraction"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toEndOf="@+id/button_three"
         app:layout_constraintTop_toBottomOf="@+id/button_division" />
@@ -292,6 +313,8 @@
         android:text="+"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
+        android:onClick="onClickOperationButtons"
+        android:tag="addition"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_one" />
@@ -330,6 +353,8 @@
         android:text="x"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
+        android:onClick="onClickOperationButtons"
+        android:tag="multiplication"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toEndOf="@+id/button_zero"
         app:layout_constraintTop_toBottomOf="@+id/button_three" />
