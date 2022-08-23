@@ -2,6 +2,7 @@ package com.example.calculadoraandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +17,23 @@ public class MainActivity extends AppCompatActivity {
     TextView textViewResult;
     ExpressionCalculator calculator;
 
+    public void setError(String error) {
+        textViewResult.setTextColor(Color.parseColor("#ef4444"));
+        textViewResult.setText(error);
+        setOperationValue(null);
+    }
+    public void clearError() {
+        textViewResult.setTextColor(Color.parseColor("#FFBB86FC"));
+        if (result == null) {
+            textViewResult.setText("");
+        } else {
+            textViewResult.setText(result.toString());
+        }
+    }
+
     public void onClickNumberButtons(View view) {
+        clearError();
+
         try {
             String number = view.getTag().toString();
             addValueToOperation(number);
@@ -28,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void onClickOperationButtons(View view) {
+        clearError();
+
         try {
             String operation = view.getTag().toString();
             if ("clear".equals(operation)) {
@@ -96,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("Error");
             System.out.println("=================================");
             System.out.println(e);
+            setError(e.getMessage());
         }
     }
 
